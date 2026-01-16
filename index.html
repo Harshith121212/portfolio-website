@@ -1,137 +1,636 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Harshith P Rao</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(145deg, #020024, #090979, #00d4ff);
-      color: white;
-      overflow-x: hidden;
-    }
-    header {
-      text-align: center;
-      padding: 1.5rem 1rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
-    section {
-      padding: 1rem 1.5rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      border-bottom: 2px solid #00d4ff;
-      padding-bottom: 0.3rem;
-      margin-bottom: 0.5rem;
-    }
-    ul {
-      margin-top: 0.3rem;
-      margin-bottom: 1rem;
-    }
-    .contact a {
-      color: #00d4ff;
-      text-decoration: none;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background-color: #00000044;
-    }
-    footer .logos {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-    footer .logos img {
-      width: 50px;
-      height: 50px;
-      border-radius: 8px;
-      transition: transform 0.3s;
-    }
-    footer .logos img:hover {
-      transform: scale(1.2) rotate(10deg);
-    }
-    footer p {
-      margin-top: 1.5rem;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshith P Rao - Cloud & DevOps Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated space background */
+        .space-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(100, 150, 255, 0.2);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+        }
+
+        .hero .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #764ba2;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Summary */
+        .summary {
+            background: rgba(20, 25, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: rgba(20, 25, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-header h3 {
+            color: #667eea;
+            font-size: 1.4rem;
+        }
+
+        .experience-header .company {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+        }
+
+        .experience-header .date {
+            color: #764ba2;
+            font-size: 0.95rem;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-card li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .experience-card li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: rgba(20, 25, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(102, 126, 234, 0.2);
+            color: #e0e0e0;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(102, 126, 234, 0.4);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(20, 25, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .project-card li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            border: 1px solid #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-item {
+            background: rgba(20, 25, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 8px;
+            padding: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .cert-item:hover {
+            transform: translateX(5px);
+            border-color: #667eea;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(100, 150, 255, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="space-bg"></div>
+    <div class="stars" id="stars"></div>
 
-<header>
-  <h1>Harshith P Rao</h1>
-  <p>Cloud and DevOps Enthusiast</p>
-</header>
+    <header>
+        <nav>
+            <div class="logo">HARSHITH P RAO</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<section>
-  <h2>About</h2>
-  <p>Aspiring Cloud Engineer with hands-on experience in cloud platforms, containerization, infrastructure as code, and automation. Skilled in designing secure, scalable infrastructure with a strong foundation in Linux system administration and CI/CD pipelines. Achieved 6 certifications in Azure</p>
-</section>
+    <section class="hero">
+        <h1>HARSHITH P RAO</h1>
+        <p class="subtitle">Cloud & DevOps Engineer</p>
+        <div class="contact-info">
+            <span>📍 Bengaluru, India</span>
+            <a href="tel:9019826552">📞 9019826552</a>
+            <a href="mailto:harshithprao@gmail.com">✉️ harshithprao@gmail.com</a>
+            <a href="https://github.com/Harshith121212" target="_blank">🔗 GitHub</a>
+            <a href="https://www.linkedin.com/in/harshith-p-rao-b8a2851b7" target="_blank">🔗 LinkedIn</a>
+        </div>
+    </section>
 
-<section>
-  <h2>Skills</h2>
-  <ul>
-    <li><strong>Cloud:</strong> Azure, AWS, GCP</li>
-    <li><strong>IaC:</strong> Terraform, Ansible</li>
-    <li><strong>CI/CD:</strong> Jenkins, GitHub Actions</li>
-    <li><strong>Containers:</strong> Docker, Kubernetes</li>
-    <li><strong>Monitoring:</strong> Prometheus, Grafana</li>
-    <li><strong>Languages:</strong> Python, Golang</li>
-    <li><strong>OS:</strong> Linux, Unix</li>
-  </ul>
-</section>
+    <div class="container">
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="summary">
+                Cloud & DevOps Engineer with hands-on experience gained through professional work and personal projects. Skilled in designing and maintaining CI/CD pipelines with Azure DevOps, automating infrastructure with Terraform and ARM templates, and implementing monitoring with Azure Monitor and Application Insights. Certified Microsoft Azure DevOps Expert, passionate about applying cloud-native practices to improve reliability, scalability, and security.
+            </div>
+        </section>
 
-<section>
-  <h2>Experience</h2>
-  <p><strong>Kyndryl</strong> — System Administrator (Aug 2022 – Present)</p>
-  <ul>
-    <li>Managed IAM across 1000+ Linux/Solaris servers.</li>
-    <li>Automated cron jobs to remove inactive users.</li>
-    <li>Implemented secure policies and access control.</li>
-  </ul>
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3>System Administrator</h3>
+                            <p class="company">Kyndryl</p>
+                        </div>
+                        <span class="date">Aug 2023 - Present</span>
+                    </div>
+                    <ul>
+                        <li>Working in DevOps Service Management project for a biggest telecom giant in Australia</li>
+                        <li>Automated IAM processes on 3000+ Linux/Solaris servers using cron jobs, removing inactive users to improve compliance and security</li>
+                        <li>Supported role-based access and identity management (IAM) tasks, applying least-privilege policies and automating user lifecycle operations across servers</li>
+                        <li>Managed secure authentication and user access for critical systems, applying best practices to prevent unauthorized access</li>
+                        <li>Improved infrastructure workflows with automation, ensuring high availability and smoother operations across multi-server environments</li>
+                        <li>Assisted Dev and SRE teams by troubleshooting CI/CD build and deployment failures</li>
+                        <li>Participated in a proof-of-concept to evaluate Azure Monitor / Application Insights integration, collecting telemetry and documenting recommended alerting strategies</li>
+                    </ul>
+                </div>
 
-  <p><strong>Rovia Solutions Pvt Ltd</strong> — Cloud Intern (Mar 2022 – Jun 2022)</p>
-  <ul>
-    <li>Deployed a customer website using EC2, ALB, S3, RDS.</li>
-    <li>Implemented IAM and autoscaling with CloudWatch.</li>
-  </ul>
-</section>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Intern</h3>
+                            <p class="company">Rovia Solutions</p>
+                        </div>
+                        <span class="date">March 2023 - Jun 2023</span>
+                    </div>
+                    <ul>
+                        <li>Deployed and maintained a customer's website backend on AWS, ensuring high availability, scalability and security</li>
+                        <li>Designed a robust cloud architecture using EC2, ECR, ASG, ALB and other AWS services to enhance performance, fault tolerance and cost efficiency</li>
+                        <li>Implemented IAM policies and security best practices to safeguard cloud resources</li>
+                        <li>Provided cloud support by diagnosing deployment issues, optimizing infrastructure with auto-scaling and improving reliability through monitoring and logging using CloudWatch</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-<section>
-  <h2>Projects</h2>
-  <p><strong>AiSynopsis</strong>: AI PDF Summarizer using Streamlit, LangChain, Docker (Hosted on Azure)</br> 
-    <a href="https://aisynopsis.streamlit.app/" target="_blank" style="color:#00d4ff;">Live Demo: aisynopsis.streamlit.app</a></p>
-  <p><strong>DevSecOps Netflix Clone</strong>: Cloud-native app with Docker, Kubernetes, Jenkins, SonarQube, Terraform, Prometheus, and Grafana (on AWS)<br>
-    <a href="https://github.com/Harshith121212/DevOps-netflixProject" target="_blank" style="color:#00d4ff;">GitHub Repo: DevOps-netflixProject</a></p>
-    <p><strong>Many more exiting stuffs in my github portfolio please do check it out and put a star</strong></p>
-</section>
+        <section id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Cloud Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">GCP</span>
+                    </div>
+                </div>
 
-<section class="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:harshithprao@gmail.com">harshithprao@gmail.com</a></p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/harshith-p-rao-b8a2851b7" target="_blank">linkedin.com/in/harshith-p-rao</a></p>
-  <p>GitHub: <a href="https://github.com/Harshith121212" target="_blank">github.com/Harshith121212</a></p>
-</section>
+                <div class="skill-category">
+                    <h3>Infrastructure as Code</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Ansible</span>
+                    </div>
+                </div>
 
-<footer>
-  <div class="logos">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
-  </div>
-</footer>
+                <div class="skill-category">
+                    <h3>CI/CD</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Azure DevOps</span>
+                    </div>
+                </div>
 
+                <div class="skill-category">
+                    <h3>Containers & Orchestration</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">GKE</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Monitoring & Logging</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">Azure Monitor</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Golang</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Operating Systems</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Unix</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>ML Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MLFlow</span>
+                        <span class="skill-tag">SciKit-Learn</span>
+                        <span class="skill-tag">PyTorch</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>End to End MLOps Project</h3>
+                    <ul>
+                        <li>Built and deployed a Random Forest Regression model with MLflow for experiment tracking, versioning, and registry</li>
+                        <li>Automated builds and testing with GitHub Actions CI/CD, containerized REST APIs (Flask), and optimized using multi-stage Docker builds</li>
+                        <li>Integrated Evidently AI for data drift detection, enabling continuous monitoring and production-grade ML lifecycle management</li>
+                    </ul>
+                    <a href="https://github.com/Harshith121212/end-toend-MLOps-project-RandomForestRegression" target="_blank" class="project-link">View on GitHub →</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>DevSecOps - Netflix Clone</h3>
+                    <ul>
+                        <li>Developed a Netflix-like streaming application using TypeScript, Azure and Docker, ensuring scalability and high availability</li>
+                        <li>Automated infrastructure with Terraform, enabling repeatable and efficient multi-environment deployments</li>
+                        <li>Set up CI/CD pipelines with Azure DevOps, integrating SonarQube for static code analysis and security checks</li>
+                        <li>Implemented Prometheus & Grafana monitoring for real-time health tracking and faster issue resolution</li>
+                    </ul>
+                    <a href="https://github.com/Harshith121212/DevOps-netflixProject" target="_blank" class="project-link">View on GitHub →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-item">✓ Google Associate Cloud Engineer</div>
+                <div class="cert-item">✓ Microsoft Certified: DevOps Engineer Expert</div>
+                <div class="cert-item">✓ Microsoft Certified: AI Engineer Associate</div>
+                <div class="cert-item">✓ Microsoft Certified: Azure Solutions Architect Expert</div>
+                <div class="cert-item">✓ Microsoft Certified: Azure Administrator Associate</div>
+                <div class="cert-item">✓ Microsoft Certified: Azure Fundamentals (AZ-900)</div>
+                <div class="cert-item">✓ Microsoft Certified: Azure AI Fundamentals (AI-900)</div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Education</h2>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>BSc (Honors) in Cloud Computing and Big Data</h3>
+                        <p class="company">Reva University, Bengaluru</p>
+                    </div>
+                    <span class="date">Jun 2020 - Jun 2023</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Harshith P Rao. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Generate stars
+        const starsContainer = document.getElementById('stars');
+        const starCount = 200;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            
+            const size = Math.random() * 2 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            
+            starsContainer.appendChild(star);
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
